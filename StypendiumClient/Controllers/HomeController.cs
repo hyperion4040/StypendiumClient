@@ -39,11 +39,7 @@ namespace StypendiumClient.Controllers
             // ReSharper restore Mvc.ViewNotResolved 
         }
         
-        public IActionResult GetPersons()
-        {
-            
-
-        }
+        
         
         
     }
