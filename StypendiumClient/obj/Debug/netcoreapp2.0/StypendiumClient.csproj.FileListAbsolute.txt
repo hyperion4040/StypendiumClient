@@ -1,0 +1,10 @@
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/bin/Debug/netcoreapp2.0/StypendiumClient.deps.json
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/bin/Debug/netcoreapp2.0/StypendiumClient.runtimeconfig.json
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/bin/Debug/netcoreapp2.0/StypendiumClient.runtimeconfig.dev.json
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/bin/Debug/netcoreapp2.0/StypendiumClient.dll
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/bin/Debug/netcoreapp2.0/StypendiumClient.pdb
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/obj/Debug/netcoreapp2.0/StypendiumClient.csproj.CoreCompileInputs.cache
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/obj/Debug/netcoreapp2.0/StypendiumClient.AssemblyInfoInputs.cache
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/obj/Debug/netcoreapp2.0/StypendiumClient.AssemblyInfo.cs
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/obj/Debug/netcoreapp2.0/StypendiumClient.dll
+/home/hyperion/Dokumenty/Projects/RiderProjects/StypendiumClient/StypendiumClient/obj/Debug/netcoreapp2.0/StypendiumClient.pdb
