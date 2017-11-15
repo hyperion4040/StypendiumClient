@@ -22,6 +22,10 @@
           "target": "Package",
           "version": "2.0.0"
         },
+        "Microsoft.AspNet.WebApi.Client": {
+          "target": "Package",
+          "version": "5.2.3"
+        },
         "Microsoft.AspNetCore.All": {
           "target": "Package",
           "version": "2.0.0"
