@@ -67,13 +67,16 @@ namespace StypendiumClient.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5050");
+                //client.BaseAddress = new Uri("http://localhost:5050");
+                client.BaseAddress = new Uri("http://http://stypendium.azurewebsites.net");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 var response = client.GetAsync("api/person").Result;
+                
                 if (response.IsSuccessStatusCode)
                 {
                     string responseString = response.Content.ReadAsStringAsync().Result;
+                    
                     return responseString;
                 }
             }
