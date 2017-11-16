@@ -60,7 +60,7 @@ namespace StypendiumClient.Controllers
 //                client.BaseAddress = new Uri("http://stypendium.azurewebsites.net");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                var response = client.GetAsync("api/person/3").Result;
+                var response = client.GetAsync("api/person/").Result;
                 
                 if (response.IsSuccessStatusCode)
                 {
@@ -94,6 +94,16 @@ namespace StypendiumClient.Controllers
         {
             return JsonConvert.DeserializeObject<List<Person>>(json);
         }
+
+
+        public string GetMultiple()
+        {
+            var response = Get();
+            MultiplePersons personses = JsonConvert.DeserializeObject<MultiplePersons>(response);
+
+            return personses.Persons[0].Name;
+        }
+        
         
         public IActionResult start()
         {
