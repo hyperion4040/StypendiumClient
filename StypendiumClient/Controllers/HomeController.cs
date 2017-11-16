@@ -74,6 +74,31 @@ namespace StypendiumClient.Controllers
             return "";
         }
 
+
+        public IActionResult metodaPut()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:5050");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                Person person = new Person("Ciekawe");
+                var stringData = JsonConvert.SerializeObject(person);
+                var contentData = new StringContent(stringData);
+                HttpResponseMessage response = client.PutAsync("api/person/1",contentData).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    Ok("Udało się");
+                }
+                else
+                {
+                    StatusCode(900);
+                }
+            }
+            return Ok("Taka linijka");
+        }
+            
+
         public string metodaHelp()
         {
 //            List<Person> persons = DeserializeAccounts(Get());
@@ -101,7 +126,7 @@ namespace StypendiumClient.Controllers
             var response = Get();
             MultiplePersons personses = JsonConvert.DeserializeObject<MultiplePersons>(response);
 
-            return personses.Persons[0].Name;
+            return personses.Persons[2].Name;
         }
         
         
