@@ -1,0 +1,19 @@
+﻿@using Newtonsoft.Json
+@using StypendiumClient.Controllers
+
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+//    var response = new HomeController().Get();
+//    var responseOld = new Person(new HomeController().Get());
+//    var response = responseOld.Name;
+
+   // var response = new HomeController().metodaHelp();
+    var response = new HomeController().metodaHelp();
+    
+}
+
+<h2>title</h2>
+
+<div>@response</div>
