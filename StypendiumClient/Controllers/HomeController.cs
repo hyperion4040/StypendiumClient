@@ -94,17 +94,24 @@ namespace StypendiumClient.Controllers
 
             }
 
-        public void metodaPutNowa()
+        public void metodaPutNowa(int zmienna, string nazwa)
         {
             using (var client = new HttpClient())
             {
-                Person p = new Person(1,"Zuziolunieczekos");
+                Person p = new Person(zmienna,nazwa);
                 client.BaseAddress = new Uri("http://localhost:5050/");
                 var route = "api/person/" + p.Id + "/" + p.Name;
                 var response = client.PutAsJsonAsync("api/person",p).Result;
             }
         }
-
+        [HttpPost]
+        public IActionResult razorPut(Person person)
+        {
+            int liczba = person.Id;
+            string nazwa = person.Name;
+            metodaPutNowa(liczba,nazwa);
+            return View("Index");
+        }
         public string metodaHelp()
         {
 //            List<Person> persons = DeserializeAccounts(Get());

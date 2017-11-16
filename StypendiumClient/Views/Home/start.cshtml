@@ -12,7 +12,7 @@
    // var response = new HomeController().metodaHelp();
     //var response = new HomeController().metodaHelp();
     var response2 = new HomeController().GetMultiple();
-    new HomeController().metodaPutNowa();
+    new HomeController().metodaPutNowa(3,"Zuziolunie");
     
 }
 
@@ -21,24 +21,19 @@
 <div></div>
 <h2>@response2</h2>
 
+@using (Html.BeginForm("razorPut", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Liczba:</td><td>@Html.TextBoxFor(m => m.Id)</td>
+        </tr>
+        <tr>
+            <td>Nazwa:</td><td>@Html.TextBoxFor(m => m.Name)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="submit"/></td>
+        </tr>
+    </table>
+}
     
-    
-    @*<form method="post" ></form>
-    <fieldset>
-        <legend>Edytuj person </legend>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.Name)
-        </div>
-        <div class="editor-label">
-            <div style="float: left">
-                @Html.CheckBoxFor(model => model.Featured)
-            </div>
-            @Html.LabelFor(model => model.Featured)
-        </div>
-        
-        <input type="submit" value="edit person"  />
-        
-    </fieldset>*@
+  

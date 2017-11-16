@@ -32,6 +32,10 @@ namespace StypendiumClient.Models
             Name = name;
         }
 
+        public Person()
+        {
+        }
+
         [JsonProperty(PropertyName = "id")]
         public int Id { set; get; }
         [JsonProperty(PropertyName = "name")]
