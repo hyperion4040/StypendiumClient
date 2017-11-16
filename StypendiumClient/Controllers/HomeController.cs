@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -75,29 +76,34 @@ namespace StypendiumClient.Controllers
         }
 
 
-        public IActionResult metodaPut()
+        public  HttpResponseMessage metodaPut()
         {
-            using (var client = new HttpClient())
-            {
+
+            var client = new HttpClient();
+            
                 client.BaseAddress = new Uri("http://localhost:5050");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                Person person = new Person("Ciekawe");
+                Person person = new Person(1,"Zuzinek");
                 var stringData = JsonConvert.SerializeObject(person);
                 var contentData = new StringContent(stringData);
-                HttpResponseMessage response = client.PutAsync("api/person/1",contentData).Result;
-                if (response.IsSuccessStatusCode)
-                {
-                    Ok("Udało się");
-                }
-                else
-                {
-                    StatusCode(900);
-                }
-            }
-            return Ok("Taka linijka");
-        }
+               // var response = client.PutAsync("api/person"+"/"+ person.Id +"/"+person.Name,contentData).Result;
+                var response = client.PutAsync("api/person/", contentData).Result;
+                return response;
             
+
+            }
+
+        public void metodaPutNowa()
+        {
+            using (var client = new HttpClient())
+            {
+                Person p = new Person(1,"Zuziolunieczekos");
+                client.BaseAddress = new Uri("http://localhost:5050/");
+                var route = "api/person/" + p.Id + "/" + p.Name;
+                var response = client.PutAsJsonAsync("api/person",p).Result;
+            }
+        }
 
         public string metodaHelp()
         {
@@ -126,7 +132,7 @@ namespace StypendiumClient.Controllers
             var response = Get();
             MultiplePersons personses = JsonConvert.DeserializeObject<MultiplePersons>(response);
 
-            return personses.Persons[2].Name;
+            return personses.Persons[1].Name;
         }
         
         

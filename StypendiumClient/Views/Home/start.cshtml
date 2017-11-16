@@ -1,6 +1,6 @@
 ﻿@using Newtonsoft.Json
 @using StypendiumClient.Controllers
-
+@model Person
 
 @{
     ViewBag.Title = "title";
@@ -12,10 +12,33 @@
    // var response = new HomeController().metodaHelp();
     //var response = new HomeController().metodaHelp();
     var response2 = new HomeController().GetMultiple();
-    new HomeController().metodaPut();
+    new HomeController().metodaPutNowa();
+    
 }
 
 <h2>title</h2>
 
-<div>@response2</div>
 <div></div>
+<h2>@response2</h2>
+
+    
+    
+    @*<form method="post" ></form>
+    <fieldset>
+        <legend>Edytuj person </legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Name)
+        </div>
+        <div class="editor-label">
+            <div style="float: left">
+                @Html.CheckBoxFor(model => model.Featured)
+            </div>
+            @Html.LabelFor(model => model.Featured)
+        </div>
+        
+        <input type="submit" value="edit person"  />
+        
+    </fieldset>*@

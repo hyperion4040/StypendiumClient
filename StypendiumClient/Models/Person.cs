@@ -26,7 +26,7 @@ namespace StypendiumClient.Models
             Id = id;
             Name = name;
         }
-
+        
         public Person(string name)
         {
             Name = name;
