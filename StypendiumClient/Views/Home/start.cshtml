@@ -1,6 +1,4 @@
-﻿@using Newtonsoft.Json
-@using StypendiumClient.Controllers
-@model Person
+﻿@model Person 
 
 @{
     ViewBag.Title = "title";
@@ -11,19 +9,22 @@
 
    // var response = new HomeController().metodaHelp();
     //var response = new HomeController().metodaHelp();
-    var response2 = new HomeController().GetMultiple();
-    new HomeController().metodaPutNowa(3,"Zuziolunie");
+//    var response2 = new HomeController().GetMultiple();
+//    new HomeController().metodaPutNowa(3,"Zuziolunie");
     
 }
 
 <h2>title</h2>
 
 <div></div>
-<h2>@response2</h2>
+
 
 @using (Html.BeginForm("razorPut", "Home", FormMethod.Post))
 {
-    <table>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th colspan="2" align="center">Person Details</th>
+        </tr>
         <tr>
             <td>Liczba:</td><td>@Html.TextBoxFor(m => m.Id)</td>
         </tr>
@@ -35,5 +36,7 @@
         </tr>
     </table>
 }
+
+
     
   
