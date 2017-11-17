@@ -11,7 +11,7 @@ namespace StypendiumClient.Controllers
 {
     public class KierunekController : Controller
     {
-        private string url = "http://localhost:5050";
+        private string urlBase = "http://localhost:5050";
         
         // GET
         public IActionResult Index()
@@ -21,7 +21,7 @@ namespace StypendiumClient.Controllers
                 using (HttpClient client = new HttpClient())
                 {
                     client.BaseAddress = new Uri
-                        ("http://localhost:5050");
+                        (urlBase);
                     MediaTypeWithQualityHeaderValue contentType = 
                         new MediaTypeWithQualityHeaderValue("application/json");
                     client.DefaultRequestHeaders.Accept.Add(contentType);
@@ -47,7 +47,7 @@ namespace StypendiumClient.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5050/api/");
+                client.BaseAddress = new Uri(urlBase +"/api/");
 
                 //HTTP POST
                 var postTask = client.PostAsJsonAsync<Person>("person",student);
@@ -73,7 +73,7 @@ namespace StypendiumClient.Controllers
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri
-                    ("http://localhost:5050");
+                    (urlBase);
                 MediaTypeWithQualityHeaderValue contentType = 
                     new MediaTypeWithQualityHeaderValue("application/json");
                 client.DefaultRequestHeaders.Accept.Add(contentType);
@@ -95,7 +95,7 @@ namespace StypendiumClient.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5050/api/");
+                client.BaseAddress = new Uri(urlBase+"/api/");
 
                 //HTTP POST
                 var putTask = client.PutAsJsonAsync<Person>("person", student);
@@ -111,6 +111,28 @@ namespace StypendiumClient.Controllers
             }
             return View(student);
         }
+        
+        public ActionResult Delete(int id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(urlBase+"/api/");
+
+                //HTTP DELETE
+                var deleteTask = client.DeleteAsync("person/" + id.ToString());
+                deleteTask.Wait();
+
+                var result = deleteTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    return RedirectToAction("Index");
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+        
         
 
        /* private ActionResult Przedmioty(string url)
