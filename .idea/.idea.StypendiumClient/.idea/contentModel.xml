@@ -30,6 +30,7 @@
           <e p="Kierunek" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="Przedmioty.cshtml" t="Include" />
+            <e p="create.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="Error.cshtml" t="Include" />

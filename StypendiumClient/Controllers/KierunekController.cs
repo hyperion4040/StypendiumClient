@@ -33,14 +33,38 @@ namespace StypendiumClient.Controllers
                         <IEnumerable<Person>>(stringData);
                     return View(data);
                 }
-                    
-                
-                // ReSharper disable Mvc.ViewNotResolved 
-               /* return View(data);*/
-                // ReSharper restore Mvc.ViewNotResolved 
             }
             
+        public ActionResult create()
+        {    
+            return View();
            
+        }
+        
+        
+        [HttpPost]
+        public ActionResult create(Person student)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:5050/api/");
+
+                //HTTP POST
+                var postTask = client.PostAsJsonAsync<Person>("person",student);
+                postTask.Wait();
+
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
+            ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+         
+            return View(student);
+            
+        }
         
            
             
