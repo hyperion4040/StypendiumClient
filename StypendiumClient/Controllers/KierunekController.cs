@@ -11,8 +11,8 @@ namespace StypendiumClient.Controllers
 {
     public class KierunekController : Controller
     {
-        private string urlBase = "http://localhost:5050";
-        
+        //private string urlBase = "http://localhost:5050";
+        private string urlBase = "http://stypendium.azurewebsites.net";
         // GET
         public IActionResult Index()
         {
