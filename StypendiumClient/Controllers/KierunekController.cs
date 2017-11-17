@@ -66,8 +66,51 @@ namespace StypendiumClient.Controllers
             
         }
         
-           
-            
+        public ActionResult Edit(int id)
+        {
+            Person student = null;
+
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri
+                    ("http://localhost:5050");
+                MediaTypeWithQualityHeaderValue contentType = 
+                    new MediaTypeWithQualityHeaderValue("application/json");
+                client.DefaultRequestHeaders.Accept.Add(contentType);
+                HttpResponseMessage response = client.GetAsync
+                    ("/api/person/").Result;
+                string stringData = response.Content.
+                    ReadAsStringAsync().Result;
+                IEnumerable<Person> data = JsonConvert.DeserializeObject
+                    <IEnumerable<Person>>(stringData);
+                
+                return View(data.GetEnumerator().Current);
+            }
+
+            //return View(student);
+        }
+         
+        [HttpPost]
+        public ActionResult Edit(Person student)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:5050/api/");
+
+                //HTTP POST
+                var putTask = client.PutAsJsonAsync<Person>("person", student);
+                putTask.Wait();
+
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(student);
+        }
         
 
        /* private ActionResult Przedmioty(string url)

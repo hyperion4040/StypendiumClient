@@ -28,6 +28,7 @@
             <e p="start.cshtml" t="Include" />
           </e>
           <e p="Kierunek" t="Include">
+            <e p="Edit.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
             <e p="Przedmioty.cshtml" t="Include" />
             <e p="create.cshtml" t="Include" />
