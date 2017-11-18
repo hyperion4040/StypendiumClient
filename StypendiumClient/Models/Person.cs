@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Stypendium.Models;
 
 namespace StypendiumClient.Models
 {
@@ -40,5 +41,7 @@ namespace StypendiumClient.Models
         public int Id { set; get; }
         [JsonProperty(PropertyName = "name")]
         public string Name { set; get; }
+        public string Surname { set; get; }
+        public Kierunek Kierunek { set; get; }
     }
 }
